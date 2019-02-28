@@ -1,0 +1,20 @@
+tree("Root")
+	parallel
+		tree "Follow"
+		tree "Shoot"
+
+tree("Follow")
+	fallback
+		while not ReachTargetAtDistance()
+			sequence
+				RotateToFaceTarget
+				FollowTarget
+		while not LookToTarget
+				RotateToFaceTarget		
+
+tree("Shoot")
+	fallback
+		while ReachTargetAtDistance()
+			Shoot(true)
+		while not ReachTargetAtDistance()
+			Shoot(false)
