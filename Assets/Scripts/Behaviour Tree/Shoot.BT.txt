@@ -1,5 +1,0 @@
-tree("Root")
-	while ReachTargetAtDistance()
-		sequence
-			Wait(2.0)
-			Shoot

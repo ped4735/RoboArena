@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Panda;
+using Sirenix.OdinInspector;
 
 
+[RequireComponent(typeof(PandaBehaviour))]
+[HideMonoScript]
 public class AI : MonoBehaviour
 {
 
-    public Transform target;
-    public Pool pool;
-    public Transform aim;
+    public EnemyTypes typeEnemy;
 
+    [SerializeField]
+    public Transform target;
+
+    [ShowIf("typeEnemy",EnemyTypes.Shooter)]
+    public Pool pool;
+    [ShowIf("typeEnemy", EnemyTypes.Shooter)]
+    public Transform aim;
+    [ShowIf("typeEnemy", EnemyTypes.Shooter)]
     [Range(0.01f, 2f)]
     public float fireRate;
+
+    [ShowIf("typeEnemy", EnemyTypes.Dasher)]
+    public float dashForce;
+    [ShowIf("typeEnemy", EnemyTypes.Dasher)]
+    public float timeInDashing;
+    private bool dash;
 
     [Range(0.5f, 6f)]
     public float speed = 3f;
@@ -26,12 +41,21 @@ public class AI : MonoBehaviour
     private Vector3 distance;
     private Rigidbody rb;
     private bool shooting;
+    private PandaBehaviour pBT;
+    private RaycastHit hit;
+    private Animator anim;
+
+    
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        pBT = GetComponent<PandaBehaviour>();
+        anim = GetComponent<Animator>();
     }
 
+    #region Panda Tasks
     [Task]
     public void FollowTarget()
     {
@@ -58,7 +82,7 @@ public class AI : MonoBehaviour
     }
 
     [Task]
-    public bool LookToTarget()
+    public bool isLookToTarget()
     {
         distance = target.position - transform.position;
         distance.y = 0;
@@ -95,46 +119,139 @@ public class AI : MonoBehaviour
     [Task]
     public void Dash()
     {
-
+        if (!dash)
+        {
+            Debug.Log("Dash!");
+            StartCoroutine("DashTiming");
+        }
+        Task.current.Succeed();
     }
 
     [Task]
-    public void Shoot(bool flag)
+    public bool isDashing()
     {
-                
-        if (flag && !shooting)
+        return dash;
+    }
+
+    [Task]
+    public bool isLookAtObstacle()
+    {
+        distance = target.position - transform.position;
+
+
+
+        //if (Physics.Raycast(transform.position, distance, out hit, visionDistance))
+        //{
+        //    if (hit.transform.CompareTag("Obstacle"))
+        //    {
+        //        return true;
+        //    }
+        //}
+
+        if (Physics.Raycast(transform.position, transform.forward.normalized, out hit, visionDistance))
         {
-            shooting = true;
-            StartCoroutine("Shooting");
-            Task.current.Succeed();
+            if (hit.transform.CompareTag("Obstacle"))
+            {
+                return true;
+            }
         }
-        
-        if(!flag)
-        {
-            shooting = false;
-            StopCoroutine("Shooting");
-        }
+
+        return false;
+    }
+
+    [Task]
+    public void Shoot()
+    {
+        var bullet = pool.nextThing;
+        bullet.transform.position = aim.position;
+        bullet.transform.rotation = transform.rotation;
 
         Task.current.Succeed();
     }
 
-
-    IEnumerator Shooting()
+    [Task]
+    void WaitAttackDelay()
     {
-        while (shooting)
-        {
-            var bullet = pool.nextThing;
-            bullet.transform.position = aim.position;
-            bullet.transform.rotation = transform.rotation;
-
-            yield return new WaitForSeconds(fireRate);
-        }
-        
+        pBT.Wait(fireRate);
     }
 
-    private void OnDrawGizmos()
+    [Task]
+    public void SetAnimatorTrigger(string animation)
     {
+        anim.SetTrigger(animation);
+        Task.current.Succeed();
+    }
+
+    //Task shoot with coroutine
+    //[Task]
+    //public void Shoot(bool flag)
+    //{
+
+    //    if (flag && !shooting)
+    //    {
+    //        shooting = true;
+    //        StartCoroutine("Shooting");
+    //        Task.current.Succeed();
+    //    }
+
+    //    if(!flag)
+    //    {
+    //        shooting = false;
+    //        StopCoroutine("Shooting");
+    //    }
+
+    //    Task.current.Succeed();
+    //}
+
+    //IEnumerator Shooting()
+    //{
+    //    while (shooting)
+    //    {
+    //        var bullet = pool.nextThing;
+    //        bullet.transform.position = aim.position;
+    //        bullet.transform.rotation = transform.rotation;
+
+    //        yield return new WaitForSeconds(fireRate);
+    //    }
+
+    //}
+
+    #endregion
+
+    IEnumerator DashTiming()
+    {
+        dash = true;
+        StartCoroutine(Dashing());
+        yield return new WaitForSeconds(timeInDashing);
+        dash = false;
+    }
+
+    IEnumerator Dashing()
+    {
+        while (dash)
+        {
+            rb.velocity = transform.forward * dashForce;
+            yield return new WaitForEndOfFrame();
+        }
+
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        distance = target.position - transform.position;
+        distance.y = 0;
+
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, visionDistance);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, target.position);
     }
+}
+
+public enum EnemyTypes
+{
+    Shooter,
+    Dasher
 }

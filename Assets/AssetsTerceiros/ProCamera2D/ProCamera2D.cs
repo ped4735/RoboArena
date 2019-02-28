@@ -1115,7 +1115,7 @@ namespace Com.LuisPedroFonseca.ProCamera2D
 
         void OnDrawGizmos()
         {
-            // HACK to prevent Unity bug on startup: http://forum.unity3d.com/threads/screen-position-out-of-view-frustum.9918/
+            // to prevent Unity bug on startup: http://forum.unity3d.com/threads/screen-position-out-of-view-frustum.9918/
             _drawGizmosCounter++;
             if (_drawGizmosCounter < 5 && UnityEditor.EditorApplication.timeSinceStartup < 60f)
                 return;
