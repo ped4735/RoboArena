@@ -4,19 +4,27 @@ tree("Root")
 		repeat mute tree "Dash"
 
 tree("Follow")
-		while not isDashing()
-			fallback
-				while not ReachTargetAtDistance()
+	while not isDashing
+		fallback
+			while not ReachTargetAtDistance
+				sequence
+					RotateToFaceTarget
+					FollowTargetRb
+			while not isLookToTarget
 					sequence
+						Stop
 						RotateToFaceTarget
-						FollowTarget
-				while not isLookToTarget
-						RotateToFaceTarget		
+			while isLookToTarget
+				Stop
 
 tree("Dash")
 	fallback
-		while ReachTargetAtDistance()
+		while ReachTargetAtDistance
 			while isLookToTarget
 				sequence
-					Wait 2.0
-					Dash
+					Wait 1.0
+					Dash2(true)					
+		while not ReachTargetAtDistance
+			Dash2(false)
+			
+		

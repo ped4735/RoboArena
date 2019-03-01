@@ -38,6 +38,9 @@ public class AI : MonoBehaviour
     [Range(2f, 15f)]
     public float visionDistance = 2.5f;
 
+    [Range(2f, 15f)]
+    public float toleranceAngleVision = 2.5f;
+
     private Vector3 distance;
     private Rigidbody rb;
     private bool shooting;
@@ -45,27 +48,47 @@ public class AI : MonoBehaviour
     private RaycastHit hit;
     private Animator anim;
 
-    
+    public float time;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         pBT = GetComponent<PandaBehaviour>();
-        anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();  
     }
 
     #region Panda Tasks
     [Task]
-    public void FollowTarget()
+    public void Stop()
+    {
+        rb.velocity = Vector3.zero;
+        Task.current.Succeed();
+    }
+
+    [Task]
+    public void FollowTargetRb()
     {
 
         distance = target.position - transform.position;
         distance.y = 0;
 
         //Movimento do inimigo para o player
-        transform.Translate(0, 0, Time.deltaTime * speed);
+        //transform.Translate(0, 0, Time.deltaTime * speed);
+        rb.velocity = transform.forward.normalized * speed;
 
+
+        Task.current.Succeed();
+    }
+
+    [Task]
+    public void FollowTargetT()
+    {
+
+        distance = target.position - transform.position;
+        distance.y = 0;
+
+        transform.Translate(0, 0, Time.deltaTime * speed);
         Task.current.Succeed();
     }
 
@@ -87,7 +110,7 @@ public class AI : MonoBehaviour
         distance = target.position - transform.position;
         distance.y = 0;
 
-        if (Vector3.Angle(transform.forward, distance) < 2f) 
+        if (Vector3.Angle(transform.forward, distance) < toleranceAngleVision) 
         {
             return true;
         }
@@ -138,8 +161,6 @@ public class AI : MonoBehaviour
     {
         distance = target.position - transform.position;
 
-
-
         //if (Physics.Raycast(transform.position, distance, out hit, visionDistance))
         //{
         //    if (hit.transform.CompareTag("Obstacle"))
@@ -182,39 +203,20 @@ public class AI : MonoBehaviour
         Task.current.Succeed();
     }
 
-    //Task shoot with coroutine
-    //[Task]
-    //public void Shoot(bool flag)
-    //{
+    [Task]
+    public void Dash2(bool flag)
+    {
+        if (flag)
+        {
+            rb.velocity = transform.forward * dashForce;
+        }            
+        
 
-    //    if (flag && !shooting)
-    //    {
-    //        shooting = true;
-    //        StartCoroutine("Shooting");
-    //        Task.current.Succeed();
-    //    }
+        dash = flag;
 
-    //    if(!flag)
-    //    {
-    //        shooting = false;
-    //        StopCoroutine("Shooting");
-    //    }
-
-    //    Task.current.Succeed();
-    //}
-
-    //IEnumerator Shooting()
-    //{
-    //    while (shooting)
-    //    {
-    //        var bullet = pool.nextThing;
-    //        bullet.transform.position = aim.position;
-    //        bullet.transform.rotation = transform.rotation;
-
-    //        yield return new WaitForSeconds(fireRate);
-    //    }
-
-    //}
+        Task.current.Succeed();
+            
+    }
 
     #endregion
 
@@ -235,7 +237,6 @@ public class AI : MonoBehaviour
         }
 
     }
-
 
     private void OnDrawGizmosSelected()
     {

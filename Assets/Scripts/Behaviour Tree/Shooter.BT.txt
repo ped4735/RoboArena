@@ -8,9 +8,9 @@ tree("Follow")
 		while not ReachTargetAtDistance()
 			sequence
 				RotateToFaceTarget
-				FollowTarget
+				FollowTargetT
 		while not isLookToTarget
-				RotateToFaceTarget		
+				RotateToFaceTarget
 
 tree("Shoot")
 	fallback

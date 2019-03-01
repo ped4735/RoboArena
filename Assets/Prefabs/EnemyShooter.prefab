@@ -113,7 +113,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &770795608683512741
 Transform:
   m_ObjectHideFlags: 0
@@ -227,9 +227,12 @@ MonoBehaviour:
   pool: {fileID: 0}
   aim: {fileID: 770795608984227210}
   fireRate: 0.15
+  dashForce: 0
+  timeInDashing: 0
   speed: 3
   smoothRotation: 0.03
   visionDistance: 9.96
+  toleranceAngleVision: 2.5
 --- !u!54 &770795608683512742
 Rigidbody:
   m_ObjectHideFlags: 0
