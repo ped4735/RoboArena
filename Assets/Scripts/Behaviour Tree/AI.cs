@@ -12,8 +12,7 @@ public class AI : MonoBehaviour
 
     public EnemyTypes typeEnemy;
 
-    [SerializeField]
-    public Transform target;
+    private Transform target;
 
     [ShowIf("typeEnemy",EnemyTypes.Shooter)]
     public Pool pool;
@@ -29,6 +28,7 @@ public class AI : MonoBehaviour
     public float timeInDashing;
     private bool dash;
 
+    [Title("Parametros")]
     [Range(0.5f, 6f)]
     public float speed = 3f;
 
@@ -48,14 +48,13 @@ public class AI : MonoBehaviour
     private RaycastHit hit;
     private Animator anim;
 
-    public float time;
-
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         pBT = GetComponent<PandaBehaviour>();
-        anim = GetComponent<Animator>();  
+        anim = GetComponent<Animator>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     #region Panda Tasks
@@ -69,14 +68,11 @@ public class AI : MonoBehaviour
     [Task]
     public void FollowTargetRb()
     {
-
         distance = target.position - transform.position;
         distance.y = 0;
 
         //Movimento do inimigo para o player
-        //transform.Translate(0, 0, Time.deltaTime * speed);
         rb.velocity = transform.forward.normalized * speed;
-
 
         Task.current.Succeed();
     }
@@ -140,17 +136,6 @@ public class AI : MonoBehaviour
     }
 
     [Task]
-    public void Dash()
-    {
-        if (!dash)
-        {
-            Debug.Log("Dash!");
-            StartCoroutine("DashTiming");
-        }
-        Task.current.Succeed();
-    }
-
-    [Task]
     public bool isDashing()
     {
         return dash;
@@ -197,6 +182,12 @@ public class AI : MonoBehaviour
     }
 
     [Task]
+    void WaitTimeInDash()
+    {
+        pBT.Wait(timeInDashing);
+    }
+
+    [Task]
     public void SetAnimatorTrigger(string animation)
     {
         anim.SetTrigger(animation);
@@ -204,13 +195,19 @@ public class AI : MonoBehaviour
     }
 
     [Task]
-    public void Dash2(bool flag)
+    public void WaitCurrentAnimationEnd()
+    {
+        pBT.Wait(anim.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+
+    [Task]
+    public void Dash(bool flag)
     {
         if (flag)
         {
             rb.velocity = transform.forward * dashForce;
-        }            
-        
+        }          
 
         dash = flag;
 
@@ -219,24 +216,6 @@ public class AI : MonoBehaviour
     }
 
     #endregion
-
-    IEnumerator DashTiming()
-    {
-        dash = true;
-        StartCoroutine(Dashing());
-        yield return new WaitForSeconds(timeInDashing);
-        dash = false;
-    }
-
-    IEnumerator Dashing()
-    {
-        while (dash)
-        {
-            rb.velocity = transform.forward * dashForce;
-            yield return new WaitForEndOfFrame();
-        }
-
-    }
 
     private void OnDrawGizmosSelected()
     {

@@ -17,6 +17,5 @@ tree("Shoot")
 		while ReachTargetAtDistance()
 				while not isLookAtObstacle()
 					sequence
-						//SetAnimatorTrigger("Iddle")
 						Shoot
 						WaitAttackDelay

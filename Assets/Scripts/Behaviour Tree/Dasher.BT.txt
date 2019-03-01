@@ -26,5 +26,3 @@ tree("Dash")
 					Dash2(true)					
 		while not ReachTargetAtDistance
 			Dash2(false)
-			
-		
