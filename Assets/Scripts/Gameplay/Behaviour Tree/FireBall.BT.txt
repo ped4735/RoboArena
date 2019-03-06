@@ -1,0 +1,39 @@
+tree("Root")
+	parallel
+		repeat mute tree("AvoidObstacle")
+		sequence
+			SetTargetByTag("Player")
+			repeat
+				fallback
+					tree("FollowTarget")
+					tree("Preparation")
+					tree("Dash")
+
+tree("FollowTarget")
+	fallback
+		while not ReachTargetAtDistance
+			sequence
+				RotateToFaceTarget
+				MoveForward
+		while not isLookToTarget
+			sequence
+				Stop
+				RotateToFaceTarget
+
+
+tree("Preparation")
+	sequence
+		Stop
+		SetAnimatorTrigger("dash")
+		ActivateAllPrefabs(true)
+		WaitCurrentAnimationEnd
+		Fail
+
+
+tree("Dash")
+	sequence
+		InstanceAllPrefabsWithParent
+		SetAnimatorTrigger("iddle")
+		Dash(true)
+		WaitTimeInDash
+		ActivateAllPrefabs(false)

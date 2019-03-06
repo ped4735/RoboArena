@@ -88,7 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000000, guid: b01df684cfe8f0240a20740faf4edc4b,
+  m_LightingDataAsset: {fileID: 112000000, guid: 6bbcbe5d997d4c94e90fe11e7d919411,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -279,6 +279,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: waypointPath
+      value: 
+      objectReference: {fileID: 1728355779}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: collidesWithBullet
       value: 1
@@ -287,14 +295,6 @@ PrefabInstance:
       propertyPath: collidesWithVision
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: waypointPath
-      value: 
-      objectReference: {fileID: 1728355779}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!4 &15139174 stripped
@@ -3774,18 +3774,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.size
       value: 2
@@ -3810,6 +3798,18 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 1630989790}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!1 &584168765
@@ -4476,18 +4476,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -4508,6 +4496,18 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 326481674}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!4 &657500095 stripped
@@ -5535,16 +5535,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithBullet
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
-      propertyPath: team
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6196,16 +6196,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithBullet
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
-      propertyPath: team
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11495230, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
@@ -7792,16 +7792,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithBullet
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
-      propertyPath: team
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8027,18 +8027,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.size
       value: 4
@@ -8063,6 +8051,18 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 1728355779}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!4 &1593634610 stripped
@@ -8114,18 +8114,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -8146,6 +8134,18 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 1544844647}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!1 &1630989788
@@ -9295,18 +9295,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -9327,6 +9315,18 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 352600358}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!1 &1867012427
@@ -9495,18 +9495,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
@@ -9527,6 +9515,18 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 411409707}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!4 &1909738980 stripped
@@ -9824,34 +9824,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithBullet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.data[0]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.data[1]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.data[2]
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
-      propertyPath: team
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 11495122, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
       propertyPath: waypoints.Array.size
       value: 4
@@ -9876,6 +9848,34 @@ PrefabInstance:
       propertyPath: waypointPath
       value: 
       objectReference: {fileID: 1728355779}
+    - target: {fileID: 11485734, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithBullet
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404864, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: collidesWithVision
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.data[1]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460238, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
+      propertyPath: sourceInfos.Array.data[0].breakPoints.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a5301a8d0f289a47a007836481c8778, type: 3}
 --- !u!4 &1949879070 stripped
@@ -10091,16 +10091,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
+      propertyPath: team
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithBullet
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11416752, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
       propertyPath: collidesWithVision
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11490916, guid: a5b8fa18fd9883441aeeb1fa93a4b9ed, type: 3}
-      propertyPath: team
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

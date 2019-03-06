@@ -105,7 +105,6 @@ GameObject:
   - component: {fileID: 770795608683512739}
   - component: {fileID: 770795608683512736}
   - component: {fileID: 770795608683512743}
-  - component: {fileID: 770795608683512740}
   - component: {fileID: 770795608683512742}
   m_Layer: 0
   m_Name: EnemyShooter
@@ -113,7 +112,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &770795608683512741
 Transform:
   m_ObjectHideFlags: 0
@@ -208,31 +207,8 @@ MonoBehaviour:
   - isFoldout: 1
     breakPoints: 
     breakPointStatuses: 
-    collapsedLines: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000140000001500000016000000
+    collapsedLines: 
     btScript: 
---- !u!114 &770795608683512740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 770795608683512737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c12204503449b64099c74eadbbd39d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeEnemy: 0
-  target: {fileID: 0}
-  pool: {fileID: 0}
-  aim: {fileID: 770795608984227210}
-  fireRate: 0.15
-  dashForce: 0
-  timeInDashing: 0
-  speed: 3
-  smoothRotation: 0.03
-  visionDistance: 9.96
-  toleranceAngleVision: 2.5
 --- !u!54 &770795608683512742
 Rigidbody:
   m_ObjectHideFlags: 0

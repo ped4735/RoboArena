@@ -31,7 +31,7 @@ namespace Panda.Examples.PlayTag
         public void ShowText()
         {
             bt.enabled = true;
-            bt.Reset();
+            bt.Reset(); 
         }
 
         // Use this for initialization

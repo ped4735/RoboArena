@@ -1,0 +1,7 @@
+tree("AvoidObstacle")
+	fallback
+		while IsLookToObstacle("Obstacle")
+			sequence
+				TurnInDegrees(45.0)
+				Wait 0.5
+

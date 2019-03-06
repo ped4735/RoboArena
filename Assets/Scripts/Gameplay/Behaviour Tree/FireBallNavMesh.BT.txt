@@ -1,0 +1,27 @@
+tree("Root")
+		sequence
+			SetDestinationToTarget
+			repeat
+				fallback
+					tree "FollowTarget"
+					tree "Stop"
+					tree "Dash"
+
+tree("FollowTarget")
+	fallback
+		while not IsReachTheTargetDistance
+			sequence
+				SetDestinationToTarget
+				Stop(false)
+		
+tree("Stop")
+	sequence
+		Stop(true)
+		SetAnimatorTrigger "dash"
+		WaitCurrentAnimationEnd
+		Fail
+
+tree("Dash")
+	sequence
+		SetAnimatorTrigger "iddle"
+		Succeed
