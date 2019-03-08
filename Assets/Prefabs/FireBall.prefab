@@ -314,11 +314,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBallEffect
       objectReference: {fileID: 0}
-    - target: {fileID: 5981889276311834316, guid: 8c48a6be777097b4d84ca20509008b83,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5984140087232984060, guid: 8c48a6be777097b4d84ca20509008b83,
         type: 3}
       propertyPath: m_LocalPosition.x
