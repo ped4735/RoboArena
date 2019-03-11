@@ -1,5 +1,30 @@
 tree("Root")
-		repeat
+	parallel
+		repeat mute tree("Follow")
+		repeat mute RotateToFaceTarget
+
+tree("Follow")
+	fallback
+		while not IsReachTheTargetDistance
 			sequence
+				Stop(false)
+				SetShoot(false)
+				SetAnimatorTrigger("Move")
 				SetDestinationToTarget
-				MoveDestinationToTarget
+				RotateToFaceTarget
+		while IsReachTheTargetDistance
+			while not isShooting
+				sequence
+					Stop(true)
+					SetAnimatorTrigger("ShieldUP")
+					WaitCurrentAnimationEnd
+					SetShoot(true)
+					tree("Shoot")
+		while isShooting
+			tree("Shoot")
+
+tree("Shoot")
+	sequence
+		Wait 0.1
+		Shoot()
+		FireRateWaiting()

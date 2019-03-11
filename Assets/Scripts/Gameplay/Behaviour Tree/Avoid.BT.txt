@@ -3,5 +3,5 @@ tree("AvoidObstacle")
 		while IsLookToObstacle("Obstacle")
 			sequence
 				TurnInDegrees(45.0)
-				Wait 0.5
+				Wait(0.5)
 

@@ -127,8 +127,9 @@ GameObject:
   - component: {fileID: 3535698794442755209}
   - component: {fileID: 188353338}
   - component: {fileID: 8858835959254595149}
+  - component: {fileID: 7993884}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,6 +238,18 @@ MonoBehaviour:
   timeToActivateDash: 0.3
   timeInDashing: 0.3
   dashForce: 15
+--- !u!114 &7993884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188353336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80126c8d9a68d446b128083da25527d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &530437846
 GameObject:
   m_ObjectHideFlags: 0

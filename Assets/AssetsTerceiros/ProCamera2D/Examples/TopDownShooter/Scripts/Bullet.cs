@@ -1,72 +1,66 @@
 using UnityEngine;
 using System.Collections;
+using Sirenix.OdinInspector;
 
-namespace Com.LuisPedroFonseca.ProCamera2D.TopDownShooter
+public class Bullet : MonoBehaviour
 {
-    public class Bullet : MonoBehaviour
+    public float bulletDuration = 1f;
+    public float bulletSpeed = 50f;
+
+    public LayerMask collisionMask;
+    //public string tagToCollider;
+    public string[] tagToColliders;
+
+    public int BulletDamage = 10;
+
+    private bool _exploding;
+
+
+    void OnEnable()
     {
-        public float BulletDuration = 1f;
-        public float BulletSpeed = 50f;
-        public float SkinWidth = .1f;
+        _exploding = false;
+    }
 
-        public LayerMask CollisionMask;
+    void Update()
+    {
+        if (_exploding)
+            return;
 
-        public float BulletDamage = 10f;
+        transform.position += transform.forward * Time.deltaTime * bulletSpeed;
 
-        Transform _transform;
+    }
 
-        RaycastHit _raycastHit;
-        Vector2 _collisionPoint;
-
-        float _startTime;
-        bool _exploding;
-        Vector3 _lastPos;
-
-        void Awake()
+    private void OnTriggerEnter(Collider col)
+    {
+        for (int i = 0; i < tagToColliders.Length; i++)
         {
-            _transform = this.transform;
-        }
-
-        void OnEnable()
-        {
-            _exploding = false;
-            _startTime = Time.time;
-        }
-
-        void Update()
-        {
-            if (_exploding)
-                return;
-
-            _lastPos = _transform.position;
-            _transform.Translate(Vector3.forward * BulletSpeed * Time.deltaTime);
-
-            if(Physics.Raycast(_lastPos, _transform.position - _lastPos, out _raycastHit, (_lastPos - _transform.position).magnitude + SkinWidth, CollisionMask))
+            if (col.CompareTag(tagToColliders[i]))
             {
-                _collisionPoint = _raycastHit.point;
-
-                _transform.up = _raycastHit.normal;
-
-                Collide();
-            }
-
-            if (Time.time - _startTime > BulletDuration)
+                DamageManager damageManagerRef = col.GetComponent<DamageManager>();
+                if(damageManagerRef != null)
+                {
+                    damageManagerRef.Hit(this.gameObject);
+                }
                 Disable();
+            }
         }
+        
+        //Debug.Log("Colidiu com:" + col.transform.name);
+    }
 
-        void Collide()
-        {
-            _exploding = true;
-            _transform.position = _collisionPoint;
+    //void Collide()
+    //{
+    //    _exploding = true;
+    //    _transform.position = _collisionPoint;
 
-            _raycastHit.collider.SendMessageUpwards("Hit", BulletDamage, SendMessageOptions.DontRequireReceiver);
+    //    _raycastHit.collider.SendMessageUpwards("Hit", BulletDamage, SendMessageOptions.DontRequireReceiver);
 
-            Disable();
-        }
+    //    Disable();
+    //}
 
-        void Disable()
-        {
-            gameObject.SetActive(false);
-        }
+    public void Disable()
+    {
+        _exploding = true;
+        gameObject.SetActive(false);
     }
 }

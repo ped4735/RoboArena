@@ -49,6 +49,7 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    [Button(Name = "Play Sound ID")]
     public void PlayByID(int id)
     {
 
@@ -73,17 +74,24 @@ public class AudioManager : MonoBehaviour
 
     }
 
+    [Button(Name = "Play Group ID")]
     public void PlayRandomByID(int groupID)
     {
-
+        //TODO implement play by random group
     }
 
     [Button(Name ="Mute")]
-    public void Mute(bool mute)
+    public void Mute()
     {
-        this.mute = mute;
+        mute = !mute;
         Music.mute = mute;
         SFX.mute = mute;
+    }
+
+    [Button(Name = "Pause")]
+    public void PauseMusic()
+    {
+        Music.Stop();
     }
 
 }

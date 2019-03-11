@@ -25,7 +25,6 @@ tree("Preparation")
 	sequence
 		Stop
 		SetAnimatorTrigger("dash")
-		ActivateAllPrefabs(true)
 		WaitCurrentAnimationEnd
 		Fail
 
@@ -36,4 +35,3 @@ tree("Dash")
 		SetAnimatorTrigger("iddle")
 		Dash(true)
 		WaitTimeInDash
-		ActivateAllPrefabs(false)
