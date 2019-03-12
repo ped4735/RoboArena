@@ -194,12 +194,14 @@ MonoBehaviour:
     breakPoints: 
     breakPointStatuses: 
     collapsedLines: 
-    btScript: 
+    btScript: "tree(\"Root\")\r\n\tparallel\r\n\t\trepeat mute tree(\"AvoidObstacle\")\r\n\t\tsequence\r\n\t\t\tSetTargetByTag(\"Player\")\r\n\t\t\trepeat\r\n\t\t\t\tfallback\r\n\t\t\t\t\ttree(\"FollowTarget\")\r\n\t\t\t\t\ttree(\"Preparation\")\r\n\t\t\t\t\ttree(\"Dash\")\r\n\r\ntree(\"FollowTarget\")\r\n\tfallback\r\n\t\twhile
+      not ReachTargetAtDistance\r\n\t\t\tsequence\r\n\t\t\t\tRotateToFaceTarget\r\n\t\t\t\tMoveForward\r\n\t\twhile
+      not isLookToTarget\r\n\t\t\tsequence\r\n\t\t\t\tStop\r\n\t\t\t\tRotateToFaceTarget\r\n\r\n\r\ntree(\"Preparation\")\r\n\tsequence\r\n\t\tStop\r\n\t\tSetAnimatorTrigger(\"dash\")\r\n\t\tWaitCurrentAnimationEnd\r\n\t\tFail\r\n\r\n\r\ntree(\"Dash\")\r\n\tsequence\r\n\t\tInstanceAllPrefabsWithParent\r\n\t\tSetAnimatorTrigger(\"iddle\")\r\n\t\tDash(true)\r\n\t\tWaitTimeInDash\r\n"
   - isFoldout: 1
     breakPoints: 
     breakPointStatuses: 
     collapsedLines: 
-    btScript: "tree(\"AvoidObstacle\")\r\n\tfallback\r\n\t\twhile IsLookToObstacle(\"Obstacle\")\r\n\t\t\tsequence\r\n\t\t\t\tTurnInDegrees(45.0)\r\n\t\t\t\tWait(0.5)\r\n\r\n"
+    btScript: 
 --- !u!114 &17249865
 MonoBehaviour:
   m_ObjectHideFlags: 0
