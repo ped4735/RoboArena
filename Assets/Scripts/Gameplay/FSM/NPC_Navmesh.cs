@@ -11,6 +11,7 @@ public class NPC_Navmesh : MonoBehaviour
     public float speed;
     public float rotationSpeed;
     public float visionRange;
+    public float visionAngle;
 
 
     private void Awake()
