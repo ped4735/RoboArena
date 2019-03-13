@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 6337662280597108681}
   - component: {fileID: 2990927152588018117}
   - component: {fileID: 5160377115379515168}
+  - component: {fileID: 1231321415}
   m_Layer: 0
   m_Name: Head
   m_TagString: Enemy
@@ -301,6 +302,23 @@ CapsuleCollider:
   m_Height: 24.198069
   m_Direction: 2
   m_Center: {x: -7.4138e-14, y: -0.00000020730488, z: 9.896649}
+--- !u!114 &1231321415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492326540572476208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eba5cc65c8f2f04ba26fd4781e48135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableOnDeath: 0
+  disableParentInstead: 1
+  vfxOnDeath: 1
+  particleOnDeath: {fileID: 0}
+  maxHP: 150
 --- !u!1 &534495051650710526
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +456,7 @@ GameObject:
   - component: {fileID: 58863257}
   - component: {fileID: 2089177185367336171}
   m_Layer: 0
-  m_Name: SSRS_BT
+  m_Name: SSRS_FSM
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,6 +539,7 @@ MonoBehaviour:
   speed: 3
   rotationSpeed: 0.5
   visionRange: 10
+  visionAngle: 0
 --- !u!114 &2089177185367336171
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,12 +5,14 @@ using TMPro;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
 
-public class GameplayController : MonoBehaviour
+public class UIController : MonoBehaviour
 {
 
-    public static GameplayController instance;
+    public static UIController instance;
 
     public TextMeshProUGUI life_player_UI;
+    public TextMeshProUGUI life_enemy_UI;
+
     public GameObject player;
     public GameObject pauseMenu;
      
@@ -39,9 +41,14 @@ public class GameplayController : MonoBehaviour
         }
     }
 
-    public void SetLifeValueUI(int value)
+    public void SetLifePlayerValueUI(int value)
     {
         life_player_UI.text = value.ToString("000");
+    }
+
+    public void SetLifeEnemyValueUI(int value)
+    {
+        life_enemy_UI.text = value.ToString("000");
     }
 
     [Button(Name = "Pause Game")]

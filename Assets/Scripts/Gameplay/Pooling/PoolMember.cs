@@ -7,7 +7,7 @@ using UnityEngine;
 using System.Collections;
 
 public class PoolMember : MonoBehaviour
-    {
+{
         public Pool pool;
 
         void OnDisable()

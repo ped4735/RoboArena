@@ -21,7 +21,8 @@ public class Pool : MonoBehaviour
                     GameObject newClone = (GameObject)Instantiate(thing);  
                     newClone.transform.parent = transform;  
                     newClone.SetActive(false);  
-                    things.Add(newClone);  
+                    things.Add(newClone);
+                
                     PoolMember poolMember = newClone.AddComponent<PoolMember>();  
                     poolMember.pool = this;  
                 }  

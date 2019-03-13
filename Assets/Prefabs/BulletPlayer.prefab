@@ -82,8 +82,9 @@ GameObject:
   - component: {fileID: 896962207812817190}
   - component: {fileID: 5148791222180372520}
   - component: {fileID: 7243935547623457929}
+  - component: {fileID: 7399131929851272155}
   m_Layer: 0
-  m_Name: bullet
+  m_Name: BulletPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,15 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0ded119c90246fd80b4cc1969ee26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDuration: 1
-  bulletSpeed: 30
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  tagToColliders:
-  - Enemy
-  - Obstacle
-  BulletDamage: 10
+  bulletDuration: 2
+  bulletSpeed: 20
 --- !u!136 &7243935547623457929
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -184,3 +178,19 @@ CapsuleCollider:
   m_Height: 0.99999994
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7399131929851272155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264386793135044343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4ed1e4bc96f2044b3bd23523017536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableAfterTouch: 1
+  tagToColliders:
+  - Enemy
+  damage: 10

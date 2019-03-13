@@ -23,7 +23,7 @@ public class FSM_Dash_Navmesh : StateMachineBehaviour
         npc.GetNavMeshAgent().SetDestination(destination);
         npc.GetNavMeshAgent().isStopped = false;
 
-        Debug.Log("Dash Destination:" + destination);
+        //Debug.Log("Dash Destination:" + destination);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

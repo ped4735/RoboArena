@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 460574}
   - component: {fileID: 11468768}
+  - component: {fileID: 1628360280632769526}
   - component: {fileID: 1382084035950768813}
   m_Layer: 0
   m_Name: BulletEnemy
@@ -45,15 +46,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0ded119c90246fd80b4cc1969ee26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDuration: 1
-  bulletSpeed: 30
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
+  bulletDuration: 2
+  bulletSpeed: 10
+--- !u!114 &1628360280632769526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4ed1e4bc96f2044b3bd23523017536, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableAfterTouch: 1
   tagToColliders:
   - Player
-  - Obstacle
-  BulletDamage: 10
+  damage: 10
 --- !u!136 &1382084035950768813
 CapsuleCollider:
   m_ObjectHideFlags: 0
