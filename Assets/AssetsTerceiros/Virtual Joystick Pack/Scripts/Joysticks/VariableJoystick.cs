@@ -1,71 +1,63 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class VariableJoystick : Joystick
 {
-    [Header("Variable Joystick Options")]
-    public bool isFixed = true;
-    public Vector2 fixedScreenPosition;
+    public float MoveThreshold { get { return moveThreshold; } set { moveThreshold = Mathf.Abs(value); } }
 
-    Vector2 joystickCenter = Vector2.zero;
+    [SerializeField] private float moveThreshold = 1;
+    [SerializeField] private JoystickType joystickType = JoystickType.Fixed;
 
-    void Start()
+    private Vector2 fixedPosition = Vector2.zero;
+
+    public void SetMode(JoystickType joystickType)
     {
-        if (isFixed)
-            OnFixed();
+        this.joystickType = joystickType;
+        if(joystickType == JoystickType.Fixed)
+        {
+            background.anchoredPosition = fixedPosition;
+            background.gameObject.SetActive(true);
+        }
         else
-            OnFloat();
+            background.gameObject.SetActive(false);
     }
 
-    public void ChangeFixed(bool joystickFixed)
+    protected override void Start()
     {
-        if (joystickFixed)
-            OnFixed();
-        else
-            OnFloat();
-        isFixed = joystickFixed;
-    }
-
-    public override void OnDrag(PointerEventData eventData)
-    {
-        Vector2 direction = eventData.position - joystickCenter;
-        inputVector = (direction.magnitude > background.sizeDelta.x / 2f) ? direction.normalized : direction / (background.sizeDelta.x / 2f);
-        ClampJoystick();
-        handle.anchoredPosition = (inputVector * background.sizeDelta.x / 2f) * handleLimit;
+        base.Start();
+        fixedPosition = background.anchoredPosition;
+        SetMode(joystickType);
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if (!isFixed)
+        if(joystickType != JoystickType.Fixed)
         {
+            background.anchoredPosition = ScreenPointToAnchoredPosition(eventData.position);
             background.gameObject.SetActive(true);
-            background.position = eventData.position;
-            handle.anchoredPosition = Vector2.zero;
-            joystickCenter = eventData.position;
         }
+        base.OnPointerDown(eventData);
     }
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        if (!isFixed)
-        {
+        if(joystickType != JoystickType.Fixed)
             background.gameObject.SetActive(false);
+
+        base.OnPointerUp(eventData);
+    }
+
+    protected override void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
+    {
+        if (joystickType == JoystickType.Dynamic && magnitude > moveThreshold)
+        {
+            Vector2 difference = normalised * (magnitude - moveThreshold) * radius;
+            background.anchoredPosition += difference;
         }
-        inputVector = Vector2.zero;
-        handle.anchoredPosition = Vector2.zero;
-    }
-
-    void OnFixed()
-    {
-        joystickCenter = fixedScreenPosition;
-        background.gameObject.SetActive(true);
-        handle.anchoredPosition = Vector2.zero;
-        background.anchoredPosition = fixedScreenPosition;
-    }
-
-    void OnFloat()
-    {
-        handle.anchoredPosition = Vector2.zero;
-        background.gameObject.SetActive(false);
+        base.HandleInput(magnitude, normalised, radius, cam);
     }
 }
+
+public enum JoystickType { Fixed, Floating, Dynamic }
