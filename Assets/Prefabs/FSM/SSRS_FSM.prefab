@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 5160377115379515168}
   - component: {fileID: 1231321415}
   m_Layer: 0
-  m_Name: Head
+  m_Name: Head (DEATH)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,10 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eba5cc65c8f2f04ba26fd4781e48135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disableOnDeath: 0
+  disableOnDeath: 1
   disableParentInstead: 1
   vfxOnDeath: 1
-  particleOnDeath: {fileID: 0}
+  vfxType: 3
+  vfxOnEnable: 0
+  vfxTypeOnEnable: 3
   maxHP: 150
 --- !u!1 &534495051650710526
 GameObject:
@@ -470,7 +472,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664713735998211266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.16414261, y: 0.15025, z: -0.70876217}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.56511, y: 0.56511, z: 0.56511}
   m_Children:
   - {fileID: 6929875740653399318}
@@ -552,11 +554,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3ef3dacbdf36046b5cbd6ec3d760bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletType: 0
   aimPoints:
   - {fileID: 2887283977159522208}
-  - {fileID: 495284863}
-  - {fileID: 762514902}
-  fireSpeed: 1
+  fireSpeed: 0.4
 --- !u!1 &2484374293679723045
 GameObject:
   m_ObjectHideFlags: 0

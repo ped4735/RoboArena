@@ -19,7 +19,12 @@ public class PlayerDamage : DamageManager
 
         if (currentHP == 0)
         {
-            //TODO Death
+            Death();
         }
+    }
+
+    public override void Death()
+    {
+        Debug.Log("Player Is Dead!");
     }
 }

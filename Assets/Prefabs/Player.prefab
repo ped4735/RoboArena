@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a718187d0d2ae4cb2c9417048d00c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 0}
+  bulletType: 1
   joyL: {fileID: 0}
   joyR: {fileID: 0}
   moveSpeed: 250
@@ -250,6 +250,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c80126c8d9a68d446b128083da25527d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathVFX: {fileID: 0}
+  maxHP: 100
 --- !u!1 &530437846
 GameObject:
   m_ObjectHideFlags: 0

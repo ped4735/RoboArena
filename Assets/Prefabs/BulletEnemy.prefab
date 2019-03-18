@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 460574}
   - component: {fileID: 11468768}
   - component: {fileID: 1628360280632769526}
-  - component: {fileID: 1382084035950768813}
+  - component: {fileID: 2767652252674991942}
   m_Layer: 0
   m_Name: BulletEnemy
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
-  - {fileID: 469876}
+  - {fileID: 6229750921766893750}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0ded119c90246fd80b4cc1969ee26a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDuration: 2
+  bulletDuration: 4
   bulletSpeed: 10
 --- !u!114 &1628360280632769526
 MonoBehaviour:
@@ -63,9 +63,10 @@ MonoBehaviour:
   disableAfterTouch: 1
   tagToColliders:
   - Player
+  - Obstacle
   damage: 10
---- !u!136 &1382084035950768813
-CapsuleCollider:
+--- !u!135 &2767652252674991942
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -74,11 +75,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.07668881
-  m_Height: 0.3803745
-  m_Direction: 2
+  serializedVersion: 2
+  m_Radius: 0.08
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &154174
+--- !u!1 &3916585938880746953
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,56 +86,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 469876}
-  - component: {fileID: 3334760}
-  - component: {fileID: 2325860}
+  - component: {fileID: 6229750921766893750}
+  - component: {fileID: 700982880141512788}
+  - component: {fileID: 6798869230981282494}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &469876
+--- !u!4 &6229750921766893750
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154174}
+  m_GameObject: {fileID: 3916585938880746953}
   m_LocalRotation: {x: 0.50000006, y: 0.49999997, z: 0.50000006, w: 0.49999997}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.14125617, y: 0.18612042, z: 0.121725485}
+  m_LocalScale: {x: 0.15322, y: 0.15322, z: 0.15322}
   m_Children: []
   m_Father: {fileID: 460574}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3334760
+--- !u!33 &700982880141512788
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154174}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2325860
+  m_GameObject: {fileID: 3916585938880746953}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6798869230981282494
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154174}
+  m_GameObject: {fileID: 3916585938880746953}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c8011d4f9b7c4b8c877f9462928cc41, type: 2}
+  - {fileID: 2100000, guid: 4f17069cd4392fd44a280f55b8cccd21, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +143,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
+  m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0

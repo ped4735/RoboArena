@@ -20,7 +20,7 @@ public class Pool : MonoBehaviour
                 {  
                     GameObject newClone = (GameObject)Instantiate(thing);  
                     newClone.transform.parent = transform;  
-                    newClone.SetActive(false);  
+                    //newClone.SetActive(false);  
                     things.Add(newClone);
                 
                     PoolMember poolMember = newClone.AddComponent<PoolMember>();  
@@ -29,12 +29,12 @@ public class Pool : MonoBehaviour
                 GameObject clone = things[0];  
                 things.RemoveAt(0);  
                 clone.SetActive(true);  
-                return clone;  
+                return clone;
             }  
             set
             {  
                 value.SetActive(false);  
-                things.Add(value);  
+                things.Add(value);
             }  
         }
 }

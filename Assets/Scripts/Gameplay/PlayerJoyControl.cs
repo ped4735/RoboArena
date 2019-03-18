@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerJoyControl : MonoBehaviour
 {
-    public Pool pool;
+    public PoolTypes bulletType;
 
     public Joystick joyL, joyR;
     public float moveSpeed, moveSpeedWalk, moveSpeedShoot;
@@ -57,7 +57,6 @@ public class PlayerJoyControl : MonoBehaviour
             shooting = false;
         }
 
-        //Debug.Log("Walk:" + walking + " Shoot: " + shooting);
         //Transforma o angulo do joy direito no angulo que que o player esta olhando.
         float angleR = Vector2.Angle(new Vector2(0, 1), joyR.Direction); //0° na pos (0,1) - joy pra cima.
         float angleL = Vector2.Angle(new Vector2(0, 1), joyL.Direction); //0° na pos (0,1) - joy pra cima.
@@ -88,37 +87,38 @@ public class PlayerJoyControl : MonoBehaviour
             }
         }
 
+        //Set animation params
         anim.SetBool("walk", walking);
         anim.SetBool("shooting", shooting);
         anim.SetBool("dash", joyDash.dash);
     }
 
     //Shoot via fireRate
-    IEnumerator Fire()
-    {        
-        while (joyR.Direction != Vector2.zero)
-        {
-            var bullet = pool.nextThing;
-            bullet.transform.position = weaponTipR.position;
-            bullet.transform.rotation = transform.rotation;
+    //IEnumerator Fire()
+    //{        
+    //    while (joyR.Direction != Vector2.zero)
+    //    {
+    //        var bullet = pool.nextThing;
+    //        bullet.transform.position = weaponTipR.position;
+    //        bullet.transform.rotation = transform.rotation;
 
-            yield return new WaitForSeconds(fireRate);
-        }
-        shooting = false;
-    }
+    //        yield return new WaitForSeconds(fireRate);
+    //    }
+    //    shooting = false;
+    //}
 
 
     //Shoot via event animation
     public void ShootL()
     {
-        var bullet = pool.nextThing;
+        GameObject bullet = PoolController.instance.GetBullet(bulletType);
         bullet.transform.position = weaponTipL.position;
         bullet.transform.rotation = transform.rotation;
     }
 
     public void ShootR()
     {
-        var bullet = pool.nextThing;
+        GameObject bullet = PoolController.instance.GetBullet(bulletType);
         bullet.transform.position = weaponTipR.position;
         bullet.transform.rotation = transform.rotation;
     }

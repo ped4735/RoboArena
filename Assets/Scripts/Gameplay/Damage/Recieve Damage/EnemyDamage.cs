@@ -8,19 +8,34 @@ public class EnemyDamage : DamageManager
 
     public bool vfxOnDeath;
     [ShowIf("vfxOnDeath")]
-    public Pool particleOnDeath;
+    public PoolTypes vfxType;
+
+    public bool vfxOnEnable;
+    [ShowIf("vfxOnEnable")]
+    public PoolTypes vfxTypeOnEnable;
 
     public int maxHP;
     private int currentHP;
 
-    private void Awake()
-    {
-        currentHP = maxHP;
-    }
-
+    
     private void OnEnable()
     {
         currentHP = maxHP;
+        WaveController.instance.AddEnemyCount();
+
+        if(vfxOnEnable)
+            Invoke("VFXStart", 0.1f);        
+    }
+
+    private void OnDisable()
+    {
+        WaveController.instance.RemoveEnemyCount();
+
+        if (vfxOnDeath)
+        {
+            GameObject vfx = PoolController.instance.GetVFX(vfxType);
+            vfx.transform.position = transform.position;
+        }
     }
 
     public override void Hit(int damage)
@@ -35,15 +50,8 @@ public class EnemyDamage : DamageManager
         UIController.instance.SetLifeEnemyValueUI(currentHP);
     }
 
-    public void Death()
-    {
-
-        if (vfxOnDeath)
-        {
-            GameObject vfx = particleOnDeath.nextThing;
-            vfx.transform.position = transform.position;
-        }
-
+    public override void Death()
+    {   
         if (disableParentInstead)
         {
             if (disableOnDeath)
@@ -65,8 +73,13 @@ public class EnemyDamage : DamageManager
             {
                 Destroy(gameObject);
             }
-        }
-        
+        } 
+    }
+
+    public void VFXStart()
+    {
+        GameObject vfx = PoolController.instance.GetVFX(vfxTypeOnEnable);
+        vfx.transform.position = transform.position;
     }
 
 }

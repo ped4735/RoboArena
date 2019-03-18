@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+
 [RequireComponent(typeof(Collider))]
 public class DamageOnTouch : MonoBehaviour
 {

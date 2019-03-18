@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
@@ -13,9 +11,8 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI life_player_UI;
     public TextMeshProUGUI life_enemy_UI;
 
-    public GameObject player;
     public GameObject pauseMenu;
-     
+    
 
     [HideInInspector]
     public bool paused;
