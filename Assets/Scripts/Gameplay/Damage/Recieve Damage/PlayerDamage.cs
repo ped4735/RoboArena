@@ -2,7 +2,8 @@
 
 public class PlayerDamage : DamageManager
 {
-    public GameObject deathVFX;
+    public bool immortal;
+    public PoolTypes deathVFX;
     public int maxHP = 100;
 
     private int currentHP;
@@ -17,14 +18,17 @@ public class PlayerDamage : DamageManager
         currentHP -= damage;
         UIController.instance.SetLifePlayerValueUI(currentHP);
 
-        if (currentHP == 0)
+        if (!immortal)
         {
-            Death();
+            if (currentHP <= 0)
+            {
+                Death();
+            }
         }
     }
 
     public override void Death()
     {
-        Debug.Log("Player Is Dead!");
+        UIController.instance.GameOver();
     }
 }

@@ -343,7 +343,9 @@ MonoBehaviour:
   disableParentInstead: 0
   vfxOnDeath: 1
   vfxType: 2
-  maxHP: 100
+  vfxOnEnable: 0
+  vfxTypeOnEnable: 0
+  maxHP: 80
 --- !u!54 &3073020911026393038
 Rigidbody:
   m_ObjectHideFlags: 0

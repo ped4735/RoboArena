@@ -1,90 +1,96 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-
-
-[System.Serializable]
-public struct Spawn {
-
-    public bool randomPos;
-    [HideIf("randomPos")]
-    public Transform spawnPoint;
-    public PoolTypes enemyPool;
-
-}
-
-[System.Serializable]
-public struct Waves
-{
-    public int ID;
-    public int difficultLevel;
-    public List<Spawn> enemys;
-}
 
 public class WaveController : MonoBehaviour
 {
     [HideInInspector]
     public static WaveController instance;
-
-    public float timeBtwWaves = 5f;
-    public Transform spawnPointsRef;
-    public List<Waves> waves = new List<Waves>();
     
-
-    private int enemyNumberInWave;
+    public Transform spawnPointsRef;
     private List<Transform> spawnPointsRandom;
-    private Waves currentWave;
+    private List<Waves> wavesByLevel = new List<Waves>();
 
     private void Awake()
     {
-        if(instance == null)
+
+        #region SingleTon
+        if (instance == null)
         {
             instance = this;
         }
         else
         {
             return;
-        }
+        } 
+        #endregion
 
         spawnPointsRandom = new List<Transform> (spawnPointsRef.GetComponentsInChildren<Transform>());
     }
-
-
+    
     [Button(Name = "Spawn Wave Enemy ID")]
-    public void SpawnWavesById(int id)
+    public void SpawnWavesById(int id, ScriptableWaves waves)
     {
-        for (int i = 0; i < waves.Count; i++)
+        for (int j = 0; j < waves.waves[id].enemys.Count; j++)
         {
-            if(waves[i].ID == id)
-            {
-                
-                for (int j = 0; j < waves[i].enemys.Count; j++)
-                {
-                    GameObject enemy = PoolController.instance.GetEnemy(waves[i].enemys[j].enemyPool);
+            GameObject enemy = PoolController.instance.GetEnemy(waves.waves[id].enemys[j].enemyPool);
 
-                    if(!waves[i].enemys[j].randomPos)
-                        enemy.transform.position = waves[i].enemys[j].spawnPoint.position;
-                    else
-                        enemy.transform.position = spawnPointsRandom[Random.Range(0, spawnPointsRandom.Count)].position;
-                }
+            if(!waves.waves[id].enemys[j].randomPos)
+                enemy.transform.position = waves.waves[id].enemys[j].spawnPoint.position;
+            else
+                enemy.transform.position = spawnPointsRandom[Random.Range(1, spawnPointsRandom.Count)].position;
+        }
+    }
+
+    [Button(Name = "Spawn Wave Enemy Difficult Level")]
+    public void SpawnWavesByDificult(int level, ScriptableWaves waves)
+    {
+        
+        //Create a list of waves with dificultLevel selected
+        wavesByLevel.Clear();
+        for (int i = 0; i < waves.waves.Count; i++)
+        {
+            if (waves.waves[i].difficultLevel == level)
+            {
+                wavesByLevel.Add(waves.waves[i]);
             }
         }
-    }
 
-    public void AddEnemyCount()
-    {
-        enemyNumberInWave++;
-    }
-
-    public void RemoveEnemyCount()
-    {
-        enemyNumberInWave--;
-
-        if(enemyNumberInWave <= 0)
+        if (wavesByLevel.Count == 0)
         {
-            Debug.Log("End Wave");
+            Debug.Log("You dont have waves in this difficult level!" + level);
+            return;
         }
+
+        int randNumb = Random.Range(0, wavesByLevel.Count);
+
+        //SpawnRandom in waveByLevel
+        for (int i = 0; i < wavesByLevel[randNumb].enemys.Count; i++)
+        {
+            GameObject enemy = PoolController.instance.GetEnemy(wavesByLevel[randNumb].enemys[i].enemyPool);
+
+            if (!wavesByLevel[randNumb].enemys[i].randomPos)
+                enemy.transform.position = wavesByLevel[randNumb].enemys[i].spawnPoint.position;
+            else
+                enemy.transform.position = spawnPointsRandom[Random.Range(1, spawnPointsRandom.Count)].position;
+        }
+    }
+
+    [Button(Name = "Spawn Wave Enemy Random")]
+    public void SpawnWavesRandom(ScriptableWaves waves)
+    {
+        int randNumb = Random.Range(0, waves.waves.Count);
+
+        for (int i = 0; i < waves.waves[randNumb].enemys.Count; i++)
+        {
+            GameObject enemy = PoolController.instance.GetEnemy(waves.waves[randNumb].enemys[i].enemyPool);
+
+            if (!waves.waves[randNumb].enemys[i].randomPos)
+                enemy.transform.position = waves.waves[randNumb].enemys[i].spawnPoint.position;
+            else
+                enemy.transform.position = spawnPointsRandom[Random.Range(1, spawnPointsRandom.Count)].position;
+        }
+        
     }
 
 }

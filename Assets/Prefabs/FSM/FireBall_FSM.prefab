@@ -141,7 +141,7 @@ MonoBehaviour:
   disableAfterTouch: 0
   tagToColliders:
   - Player
-  damage: 50
+  damage: 20
 --- !u!114 &990444751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +158,8 @@ MonoBehaviour:
   disableParentInstead: 0
   vfxOnDeath: 1
   vfxType: 2
+  vfxOnEnable: 0
+  vfxTypeOnEnable: 0
   maxHP: 50
 --- !u!1 &2843468654758887152
 GameObject:
@@ -297,7 +299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5092610114243363185}
   m_LocalRotation: {x: -0.7101905, y: -0, z: -0, w: 0.70400965}
-  m_LocalPosition: {x: 0.102, y: 1.029, z: 0.033}
+  m_LocalPosition: {x: 0.009, y: 1.029, z: 0.25}
   m_LocalScale: {x: 1, y: 0.99045, z: 1}
   m_Children: []
   m_Father: {fileID: 1678327480358828980}

@@ -21,7 +21,7 @@ public class EnemyDamage : DamageManager
     private void OnEnable()
     {
         currentHP = maxHP;
-        WaveController.instance.AddEnemyCount();
+        WaveManager.instance.AddEnemyCount();
 
         if(vfxOnEnable)
             Invoke("VFXStart", 0.1f);        
@@ -29,7 +29,7 @@ public class EnemyDamage : DamageManager
 
     private void OnDisable()
     {
-        WaveController.instance.RemoveEnemyCount();
+        WaveManager.instance.RemoveEnemyCount();
 
         if (vfxOnDeath)
         {

@@ -1,16 +1,18 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-
+    
     public static UIController instance;
 
     public TextMeshProUGUI life_player_UI;
     public TextMeshProUGUI life_enemy_UI;
-
+    public TextMeshProUGUI waveUI, waveTimeUI;
+    public GameObject gameOverUI;
     public GameObject pauseMenu;
     
 
@@ -53,17 +55,25 @@ public class UIController : MonoBehaviour
     {
         paused = !paused;
         pauseMenu.SetActive(paused);
+        EnableGamePlayUI(!paused);
 
         if (paused)
         {
             Time.timeScale = 0;
-
         }
         else
         {
             Time.timeScale = 1;
         }
 
+    }
+
+    [Button(Name = "Game Over")]
+    public void GameOver()
+    {
+        EnableGamePlayUI(false);
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void LoadSceneName(string sceneName)
@@ -78,4 +88,26 @@ public class UIController : MonoBehaviour
         AudioManager.instance.Mute();
     }
 
+    public void UpdateWaveUI(int level, int wave)
+    {
+        waveUI.gameObject.SetActive(true);
+        waveUI.text = "WAVE - " + wave;
+    }
+
+    public void UpdateTimeWaveUI(float time)
+    {
+        waveTimeUI.text = time + "";
+    }
+
+    public void EneableWaveUI(bool enable)
+    {
+        waveUI.gameObject.SetActive(enable);
+    }
+
+    public void EnableGamePlayUI(bool enable)
+    {
+        life_enemy_UI.gameObject.SetActive(enable);
+        life_player_UI.gameObject.SetActive(enable);
+        waveUI.GetComponent<CanvasGroup>().alpha = enable ? 1 : 0;
+    }
 }

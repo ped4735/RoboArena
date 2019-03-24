@@ -320,7 +320,7 @@ MonoBehaviour:
   vfxType: 3
   vfxOnEnable: 0
   vfxTypeOnEnable: 3
-  maxHP: 150
+  maxHP: 100
 --- !u!1 &534495051650710526
 GameObject:
   m_ObjectHideFlags: 0

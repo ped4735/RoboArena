@@ -42,8 +42,7 @@ public class PlayerJoyControl : MonoBehaviour
         else if (joyL.Direction == Vector2.zero)
         {
             walking = false;
-        }
-        
+        }        
 
         
         if(joyR.Direction != Vector2.zero) //&& !shooting)
