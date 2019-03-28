@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI life_player_UI;
     public TextMeshProUGUI life_enemy_UI;
     public TextMeshProUGUI waveUI, waveTimeUI;
+    public TextMeshProUGUI waveYouDiedUI;
     public GameObject gameOverUI;
     public GameObject pauseMenu;
     
@@ -71,6 +72,8 @@ public class UIController : MonoBehaviour
     [Button(Name = "Game Over")]
     public void GameOver()
     {
+        waveYouDiedUI.text = "YOU DIED IN WAVE #" + WaveManager.instance.currentWave;
+
         EnableGamePlayUI(false);
         gameOverUI.SetActive(true);
         Time.timeScale = 0;

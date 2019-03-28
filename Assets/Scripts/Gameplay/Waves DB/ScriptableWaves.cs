@@ -10,7 +10,7 @@ public struct Spawn
 
     public bool randomPos;
     [HideIf("randomPos")]
-    public Transform spawnPoint;
+    public int spawnPoint;
     public PoolTypes enemyPool;
 
 }

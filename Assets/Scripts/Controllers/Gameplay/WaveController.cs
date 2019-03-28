@@ -8,7 +8,7 @@ public class WaveController : MonoBehaviour
     public static WaveController instance;
     
     public Transform spawnPointsRef;
-    private List<Transform> spawnPointsRandom;
+    private List<Transform> spawnPoints;
     private List<Waves> wavesByLevel = new List<Waves>();
 
     private void Awake()
@@ -25,7 +25,7 @@ public class WaveController : MonoBehaviour
         } 
         #endregion
 
-        spawnPointsRandom = new List<Transform> (spawnPointsRef.GetComponentsInChildren<Transform>());
+        spawnPoints = new List<Transform> (spawnPointsRef.GetComponentsInChildren<Transform>());
     }
     
     [Button(Name = "Spawn Wave Enemy ID")]
@@ -36,9 +36,9 @@ public class WaveController : MonoBehaviour
             GameObject enemy = PoolController.instance.GetEnemy(waves.waves[id].enemys[j].enemyPool);
 
             if(!waves.waves[id].enemys[j].randomPos)
-                enemy.transform.position = waves.waves[id].enemys[j].spawnPoint.position;
+                enemy.transform.position = spawnPoints[waves.waves[id].enemys[j].spawnPoint].position;
             else
-                enemy.transform.position = spawnPointsRandom[Random.Range(1, spawnPointsRandom.Count)].position;
+                enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Count)].position;
         }
     }
 
@@ -70,9 +70,9 @@ public class WaveController : MonoBehaviour
             GameObject enemy = PoolController.instance.GetEnemy(wavesByLevel[randNumb].enemys[i].enemyPool);
 
             if (!wavesByLevel[randNumb].enemys[i].randomPos)
-                enemy.transform.position = wavesByLevel[randNumb].enemys[i].spawnPoint.position;
+                enemy.transform.position = spawnPoints[wavesByLevel[randNumb].enemys[i].spawnPoint].position;
             else
-                enemy.transform.position = spawnPointsRandom[Random.Range(1, spawnPointsRandom.Count)].position;
+                enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Count)].position;
         }
     }
 
@@ -86,9 +86,9 @@ public class WaveController : MonoBehaviour
             GameObject enemy = PoolController.instance.GetEnemy(waves.waves[randNumb].enemys[i].enemyPool);
 
             if (!waves.waves[randNumb].enemys[i].randomPos)
-                enemy.transform.position = waves.waves[randNumb].enemys[i].spawnPoint.position;
+                enemy.transform.position = spawnPoints[waves.waves[randNumb].enemys[i].spawnPoint].position;
             else
-                enemy.transform.position = spawnPointsRandom[Random.Range(1, spawnPointsRandom.Count)].position;
+                enemy.transform.position = spawnPoints[Random.Range(1, spawnPoints.Count)].position;
         }
         
     }

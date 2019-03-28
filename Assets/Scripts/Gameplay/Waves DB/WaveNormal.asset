@@ -16,172 +16,157 @@ MonoBehaviour:
   - difficultLevel: 0
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
   - difficultLevel: 0
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
   - difficultLevel: 0
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 6
   - difficultLevel: 1
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
   - difficultLevel: 1
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
   - difficultLevel: 1
     enemys:
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
+    - randomPos: 0
+      spawnPoint: 8
       enemyPool: 6
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
+    - randomPos: 0
+      spawnPoint: 3
       enemyPool: 6
   - difficultLevel: 2
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
   - difficultLevel: 2
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
   - difficultLevel: 2
     enemys:
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
+    - randomPos: 0
+      spawnPoint: 2
       enemyPool: 6
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
+    - randomPos: 0
+      spawnPoint: 6
       enemyPool: 6
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 6
-  - difficultLevel: 3
-    enemys:
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 4
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 4
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 6
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
+    - randomPos: 0
+      spawnPoint: 5
       enemyPool: 6
   - difficultLevel: 3
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
+      enemyPool: 4
+    - randomPos: 0
+      spawnPoint: 7
+      enemyPool: 6
+    - randomPos: 0
+      spawnPoint: 2
+      enemyPool: 6
+  - difficultLevel: 3
+    enemys:
+    - randomPos: 1
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 4
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
+      enemyPool: 4
+    - randomPos: 1
+      spawnPoint: 0
       enemyPool: 4
   - difficultLevel: 3
     enemys:
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
     - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-  - difficultLevel: 3
-    enemys:
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 6
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 6
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 4
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 4
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
-      enemyPool: 5
-    - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
       enemyPool: 5
   - difficultLevel: 3
     enemys:
     - randomPos: 0
-      spawnPoint: {fileID: 0}
+      spawnPoint: 2
       enemyPool: 6
     - randomPos: 0
-      spawnPoint: {fileID: 0}
-      enemyPool: 6
-    - randomPos: 0
-      spawnPoint: {fileID: 0}
-      enemyPool: 6
-    - randomPos: 0
-      spawnPoint: {fileID: 0}
+      spawnPoint: 6
       enemyPool: 6
     - randomPos: 1
-      spawnPoint: {fileID: 0}
+      spawnPoint: 0
+      enemyPool: 4
+    - randomPos: 1
+      spawnPoint: 0
+      enemyPool: 4
+    - randomPos: 1
+      spawnPoint: 0
+      enemyPool: 5
+    - randomPos: 1
+      spawnPoint: 0
+      enemyPool: 5
+  - difficultLevel: 3
+    enemys:
+    - randomPos: 0
+      spawnPoint: 12
+      enemyPool: 6
+    - randomPos: 0
+      spawnPoint: 3
+      enemyPool: 6
+    - randomPos: 0
+      spawnPoint: 5
+      enemyPool: 6
+    - randomPos: 0
+      spawnPoint: 8
+      enemyPool: 6
+    - randomPos: 1
+      spawnPoint: 0
       enemyPool: 5
