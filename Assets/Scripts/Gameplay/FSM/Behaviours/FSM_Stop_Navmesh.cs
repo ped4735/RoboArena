@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class FSM_Stop_Navmesh : StateMachineBehaviour
 {
     public bool stopOnExit, stopOnEnter;
+    public bool startOnExit, startOnEnter;
     private NavMeshAgent agent;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -13,6 +14,9 @@ public class FSM_Stop_Navmesh : StateMachineBehaviour
 
         if (stopOnEnter)
             agent.isStopped = true;
+
+        if (startOnEnter)
+            agent.isStopped = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -26,6 +30,9 @@ public class FSM_Stop_Navmesh : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if(stopOnExit)
+            agent.isStopped = true;
+
+        if (startOnExit)
             agent.isStopped = false;
     }
 

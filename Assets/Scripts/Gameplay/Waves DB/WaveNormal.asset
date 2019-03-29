@@ -15,9 +15,12 @@ MonoBehaviour:
   waves:
   - difficultLevel: 0
     enemys:
-    - randomPos: 1
-      spawnPoint: 0
-      enemyPool: 4
+    - randomPos: 0
+      spawnPoint: 5
+      enemyPool: 6
+    - randomPos: 0
+      spawnPoint: 5
+      enemyPool: 5
   - difficultLevel: 0
     enemys:
     - randomPos: 1

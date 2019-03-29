@@ -19,13 +19,7 @@ public class NPC_Navmesh : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         anim = GetComponent<Animator>();
-
         agent.speed = speed;
-    }
-
-    private void Update()
-    {
-        anim.SetFloat("distance", Vector3.Distance(transform.position, target.position));
     }
 
     public NavMeshAgent GetNavMeshAgent()

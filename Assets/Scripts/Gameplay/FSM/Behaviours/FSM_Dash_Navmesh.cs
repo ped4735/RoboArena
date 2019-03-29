@@ -6,6 +6,7 @@ public class FSM_Dash_Navmesh : StateMachineBehaviour
 {
 
     private NPC_Navmesh npc;
+    public string trigger;
     //private Transform refPoint;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
@@ -21,7 +22,7 @@ public class FSM_Dash_Navmesh : StateMachineBehaviour
 
         npc.GetNavMeshAgent().velocity = animator.transform.forward * 30f;
         npc.GetNavMeshAgent().SetDestination(destination);
-        npc.GetNavMeshAgent().isStopped = false;
+        //npc.GetNavMeshAgent().isStopped = false;
 
         //Debug.Log("Dash Destination:" + destination);
     }
@@ -33,7 +34,7 @@ public class FSM_Dash_Navmesh : StateMachineBehaviour
 
         if(npc.GetNavMeshAgent().remainingDistance <= 1f)
         {
-            animator.SetTrigger("chase");
+            animator.SetTrigger(trigger);
         }
 
 

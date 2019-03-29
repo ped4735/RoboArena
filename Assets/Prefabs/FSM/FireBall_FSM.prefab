@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  rotationSpeed: 0.5
+  rotationSpeed: 0.1
   visionRange: 7
   visionAngle: 20
 --- !u!54 &990444746
