@@ -4661,11 +4661,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a780f89d0d1d0704f8dad3fa38ab5e1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startOnAwake: 0
+  startOnAwake: 1
   timeBtwWaves: 5
   maxDificultLevel: 3
   manyWavesToDifficultLevelUp: 3
-  currentLevel: 3
+  currentLevel: 0
   currentWave: 0
   enemyNumberInWave: 0
   normalWaves: {fileID: 11400000, guid: 8b4ac896eff92484db5f5b02759a816f, type: 2}

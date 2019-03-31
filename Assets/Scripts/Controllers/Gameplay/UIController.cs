@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI life_player_UI;
     public TextMeshProUGUI life_enemy_UI;
+    public GameObject panelEnemyLife;
     public TextMeshProUGUI waveUI, waveTimeUI;
     public TextMeshProUGUI waveYouDiedUI;
     public GameObject gameOverUI;
@@ -48,7 +49,20 @@ public class UIController : MonoBehaviour
 
     public void SetLifeEnemyValueUI(int value)
     {
+        if (!panelEnemyLife.activeSelf)
+        {
+            panelEnemyLife.SetActive(true);
+            StartCoroutine("timeToDisable", new object[2] { panelEnemyLife, 2f});
+        }
+
         life_enemy_UI.text = value.ToString("000");
+    }
+
+    IEnumerator timeToDisable(object[] paramns)
+    {
+        yield return new WaitForSeconds((float)paramns[1]);
+        GameObject obj = (GameObject)paramns[0];
+        obj.SetActive(false);
     }
 
     [Button(Name = "Pause Game")]
