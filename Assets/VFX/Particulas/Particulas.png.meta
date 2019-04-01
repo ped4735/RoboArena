@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48fdde6d923d44342906a84dee1f16de
+guid: 20a6b0cd0a7619447a3abf3a23dde38a
 TextureImporter:
   fileIDToRecycleName:
     21300000: Particulas_0
@@ -11,9 +11,8 @@ TextureImporter:
     21300012: Particulas_6
     21300014: Particulas_7
     21300016: Particulas_8
-    21300018: Particulas_9
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -73,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -84,18 +83,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,7 +107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6269a36f45be5994e8b24c70e23ca7a3
+      spriteID: 11223057e43a87849825ed6f1f8e54e1
       vertices: []
       indices: 
       edges: []
@@ -139,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e37d2bdd2e6d95a45b747f27b182a3f8
+      spriteID: 74f0a689f6564d742bb0eddaf9cad05b
       vertices: []
       indices: 
       edges: []
@@ -159,7 +147,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 122fb0a1f0cf8ca4781b1e26c5942e29
+      spriteID: 42b95ee4e8e5dce40b93924188d26afb
       vertices: []
       indices: 
       edges: []
@@ -179,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8a5b01e3dbc5354eb19fc70b4407579
+      spriteID: c4d169eb2be643146bc92457ae736a6a
       vertices: []
       indices: 
       edges: []
@@ -199,33 +187,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3170e9f98e1d6184b877f96854a6220d
+      spriteID: dee25f99efea1e54b9043583e5acd018
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Particulas_5
-      rect:
-        serializedVersion: 2
-        x: 215
-        y: 1083
-        width: 7
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba56b0f8d07043e43a174579f7e6193f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Particulas_6
       rect:
         serializedVersion: 2
         x: 930
@@ -239,19 +207,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1dc8a0a01994db43875089e184d4070
+      spriteID: a682fae12e965e448887923dd6936431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particulas_7
+      name: Particulas_6
       rect:
         serializedVersion: 2
         x: 990
         y: 321
         width: 8
-        height: 9
+        height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,13 +227,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be4800cf49e882a469223d3d52fe68b6
+      spriteID: a0d774353ad3ae841995f5909f58dc7c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particulas_8
+      name: Particulas_7
       rect:
         serializedVersion: 2
         x: 1003
@@ -279,13 +247,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7dd465940b8dd404387d6a540b83921d
+      spriteID: 3b4cf28a5e9de334e873c6e690e0f995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Particulas_9
+      name: Particulas_8
       rect:
         serializedVersion: 2
         x: 1024
@@ -299,7 +267,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f0606731808d041b1842ed3a5d5c9d
+      spriteID: c844fe8f01542604ea18f1e764f99cd1
       vertices: []
       indices: 
       edges: []
@@ -307,7 +275,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d8886d8932ba3f8429c3fb38b0238629
+    spriteID: eb8900f03721a4b4a8a50b04fcaabfe9
     vertices: []
     indices: 
     edges: []
