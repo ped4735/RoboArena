@@ -11,7 +11,10 @@ public class UIController : MonoBehaviour
 
     public TextMeshProUGUI life_player_UI;
     public TextMeshProUGUI life_enemy_UI;
+    public TextMeshProUGUI gear_UI;
     public GameObject panelEnemyLife;
+    public GameObject panelPlayerLife;
+    public GameObject panelGear;
     public TextMeshProUGUI waveUI, waveTimeUI;
     public TextMeshProUGUI waveYouDiedUI;
     public GameObject gameOverUI;
@@ -123,8 +126,9 @@ public class UIController : MonoBehaviour
 
     public void EnableGamePlayUI(bool enable)
     {
-        life_enemy_UI.gameObject.SetActive(enable);
-        life_player_UI.gameObject.SetActive(enable);
+        panelPlayerLife.SetActive(enable);
+        panelGear.SetActive(enable);
+        panelEnemyLife.SetActive(false);
         waveUI.GetComponent<CanvasGroup>().alpha = enable ? 1 : 0;
     }
 }
