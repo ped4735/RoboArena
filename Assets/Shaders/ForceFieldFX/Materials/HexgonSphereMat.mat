@@ -41,7 +41,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 82b123d008de09948adc8d1433889121, type: 3}
-        m_Scale: {x: 5, y: 5}
+        m_Scale: {x: 0, y: 0}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -63,18 +63,18 @@ Material:
     - _CullOff: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _Distort: 41.7
+    - _Distort: 12.7
     - _DstBlend: 0
     - _Float1: 2
     - _Float2: 3
-    - _Fresnel: 55.8
+    - _Fresnel: 5.9
     - _FresnelIntensity: 61
-    - _FresnelWidth: 0.967
+    - _FresnelWidth: 1.077
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _Hold: 2
-    - _IntersectionThreshold: 0.096
+    - _IntersectionThreshold: 0
     - _MaskClipValue: -1.4
     - _Metallic: 0
     - _Mode: 0
@@ -87,7 +87,7 @@ Material:
     - _RimWidth: 0.82
     - _ScrollSpeed: 2
     - _ScrollSpeedU: 0
-    - _ScrollSpeedV: 4
+    - _ScrollSpeedV: 10
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -104,7 +104,7 @@ Material:
     - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 0.08018869, g: 0.91201854, b: 1, a: 0.441}
+    - _MainColor: {r: 1, g: 0, b: 0, a: 1}
     - _intersectColor: {r: 1, g: 0, b: 0, a: 1}
     - _node_4016: {r: 0.034482475, g: 0, b: 1, a: 1}
     - _node_5050: {r: 0, g: 0, b: 0, a: 0}

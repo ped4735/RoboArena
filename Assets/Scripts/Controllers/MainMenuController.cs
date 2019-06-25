@@ -8,4 +8,15 @@ public class MainMenuController : MonoBehaviour
    {
         Manager.instance.LoadScene("Gameplay");
    }
+    
+   public void LoadSceneDelayed(string sceneName)
+   {
+        StartCoroutine(loadSceneAfterTime(sceneName));
+   }
+
+    IEnumerator loadSceneAfterTime(string sceneName)
+    {
+        yield return new WaitForSeconds(2f);
+        Manager.instance.LoadScene(sceneName);
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 
 
@@ -10,7 +11,6 @@ public class DamageOnTouch : MonoBehaviour
     public bool disableAfterTouch;
     public string[] tagToColliders;
     public int damage;
-
 
     private void OnTriggerEnter(Collider col)
     {
@@ -28,6 +28,11 @@ public class DamageOnTouch : MonoBehaviour
                     Disable();
             }
         }
+    }
+
+    public void SetDamage(int damage)
+    {
+        this.damage = damage;
     }
 
     public void Disable()

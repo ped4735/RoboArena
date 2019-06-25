@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class FSM_Dash_Navmesh : StateMachineBehaviour
 {
 
     private NPC_Navmesh npc;
     public string trigger;
-    //private Transform refPoint;
-
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    
+    
+    
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         npc = animator.GetComponent<NPC_Navmesh>();
@@ -22,12 +23,10 @@ public class FSM_Dash_Navmesh : StateMachineBehaviour
 
         npc.GetNavMeshAgent().velocity = animator.transform.forward * 30f;
         npc.GetNavMeshAgent().SetDestination(destination);
-        //npc.GetNavMeshAgent().isStopped = false;
 
-        //Debug.Log("Dash Destination:" + destination);
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         

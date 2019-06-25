@@ -6,5 +6,6 @@
     VFX_BigExplosion,
     NPC_FireBall,
     NPC_SSRS,
-    NPC_Zeppelin
+    NPC_Zeppelin,
+    NPC_FatherSSRS
 }

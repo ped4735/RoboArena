@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class FSM_LookTarget_Navmesh : StateMachineBehaviour
 {
@@ -8,14 +9,13 @@ public class FSM_LookTarget_Navmesh : StateMachineBehaviour
     private NPC_Navmesh npc;
     public string trigger;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         npc = animator.GetComponent<NPC_Navmesh>();
-        //npc.GetNavMeshAgent().isStopped = true;
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+   
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Vector3 direction = npc.GetTarget().position - animator.transform.position;
@@ -33,10 +33,10 @@ public class FSM_LookTarget_Navmesh : StateMachineBehaviour
 
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+    
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        animator.ResetTrigger(trigger);
+    { 
+       animator.ResetTrigger(trigger);
     }
 
 }

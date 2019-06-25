@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -11,20 +10,27 @@ public class WaveManager : MonoBehaviour
     [Title("Control Parameters")]
     public bool startOnAwake;
     public float timeBtwWaves = 5f;
-    public int  maxDificultLevel = 0;
     public int manyWavesToDifficultLevelUp = 3;
+    public int stepWavesToDifficultLevelUp = 0;
 
 
     [Title("Debug Parameters")]
+    [ReadOnly]
     public int currentLevel = 0;
+    [ReadOnly]
     public int currentWave = 0;
+    [ReadOnly]
     public int enemyNumberInWave;
+    private int countWaves = 0;
+    [ReadOnly]
+    public int maxDificultLevel = 0;
 
-
+    
+    private ScriptableWaves normalWaves;
+    private ScriptableWaves tutorialWaves;
+    private ScriptableWaves bossWaves;
     [Title("Waves")]
-    public ScriptableWaves normalWaves;
-    public ScriptableWaves tutorialWaves;
-    public ScriptableWaves bossWaves;
+    public ScriptableGenerateWaves waveLevel;
 
     private bool waveManagerDisable;
 
@@ -46,7 +52,16 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        
+
+        int countDiffNumber = 0;
+
+        for (int i = 0; i < waveLevel.wavesLevel.Count; i++)
+        {
+            countDiffNumber = Mathf.Max(countDiffNumber, waveLevel.wavesLevel[i].waveLevel);     
+        }
+
+        maxDificultLevel = countDiffNumber;
+
         if (startOnAwake)
         {
             StartCoroutine(WaitForFirstWave());
@@ -76,24 +91,21 @@ public class WaveManager : MonoBehaviour
         UIController.instance.UpdateWaveUI(currentLevel, currentWave);
         Coroutine C = StartCoroutine(WaitForTimeWave());
         yield return C;
-        //Debug.Log("Level: " + currentLevel + " Wave: " + currentWave);
         yield return new WaitForSeconds(0.3f);
         UIController.instance.EneableWaveUI(false);
-        WaveController.instance.SpawnWavesByDificult(currentLevel, normalWaves);
+        WaveController.instance.GenerateWaveByLevelRandom(currentLevel, waveLevel);
     }
 
     IEnumerator WaitForNextWave()
     {
-
-        //Debug.Log("Acabou Wave" + currentWave);
+        
         LevelCount();
         UIController.instance.UpdateWaveUI(currentLevel, currentWave);
         Coroutine C = StartCoroutine(WaitForTimeWave());
         yield return C;
-        //Debug.Log("Level: " + currentLevel + " Wave: " + currentWave);
         yield return new WaitForSeconds(0.3f);
         UIController.instance.EneableWaveUI(false);
-        WaveController.instance.SpawnWavesByDificult(currentLevel, normalWaves);
+        WaveController.instance.GenerateWaveByLevelRandom(currentLevel, waveLevel);
     }
 
     IEnumerator WaitForTimeWave()
@@ -112,12 +124,15 @@ public class WaveManager : MonoBehaviour
     public void LevelCount()
     {
         currentWave++;
+        countWaves++;
 
-        if(currentWave >= manyWavesToDifficultLevelUp)
+        if (countWaves >= manyWavesToDifficultLevelUp)
         {
             currentLevel++;
+            countWaves = 0;
+            manyWavesToDifficultLevelUp += stepWavesToDifficultLevelUp;
 
-            if(currentLevel > maxDificultLevel)
+            if (currentLevel > maxDificultLevel)
             {
                 currentLevel = maxDificultLevel;
             }

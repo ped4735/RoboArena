@@ -1,0 +1,230 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d902ee59780299d43bd27ab1ac121893, type: 3}
+  m_Name: JaguarinhaWaves
+  m_EditorClassIdentifier: 
+  wavesLevel:
+  - waveLevel: 0
+    enemyQuantityRandom: 0
+    quantityRandom: 1
+    quantityRandomInitial: 0
+    quantityRandomFinal: 0
+    enemysInLevel:
+    - random: 1
+      staticEnemy: 0
+      enemy: 4
+      randomQuantity: 0
+      quantity: 0
+      initial: 0
+      final: 0
+    - random: 1
+      staticEnemy: 0
+      enemy: 5
+      randomQuantity: 0
+      quantity: 0
+      initial: 0
+      final: 0
+    - random: 1
+      staticEnemy: 0
+      enemy: 6
+      randomQuantity: 0
+      quantity: 0
+      initial: 0
+      final: 0
+  - waveLevel: 1
+    enemyQuantityRandom: 0
+    quantityRandom: 2
+    quantityRandomInitial: 0
+    quantityRandomFinal: 0
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 4
+      randomQuantity: 0
+      quantity: 1
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 1
+      enemy: 5
+      randomQuantity: 0
+      quantity: 1
+      initial: 0
+      final: 0
+  - waveLevel: 2
+    enemyQuantityRandom: 0
+    quantityRandom: 3
+    quantityRandomInitial: 0
+    quantityRandomFinal: 0
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 6
+      randomQuantity: 0
+      quantity: 1
+      initial: 0
+      final: 0
+    - random: 1
+      staticEnemy: 1
+      enemy: 4
+      randomQuantity: 1
+      quantity: 0
+      initial: 0
+      final: 1
+    - random: 1
+      staticEnemy: 1
+      enemy: 5
+      randomQuantity: 1
+      quantity: 0
+      initial: 0
+      final: 1
+    - random: 0
+      staticEnemy: 1
+      enemy: 7
+      randomQuantity: 0
+      quantity: 1
+      initial: 0
+      final: 1
+  - waveLevel: 3
+    enemyQuantityRandom: 1
+    quantityRandom: 0
+    quantityRandomInitial: 3
+    quantityRandomFinal: 5
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 6
+      randomQuantity: 0
+      quantity: 1
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 0
+      enemy: 7
+      randomQuantity: 0
+      quantity: 2
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 0
+      enemy: 0
+      randomQuantity: 1
+      quantity: 2
+      initial: 1
+      final: 3
+  - waveLevel: 3
+    enemyQuantityRandom: 1
+    quantityRandom: 4
+    quantityRandomInitial: 4
+    quantityRandomFinal: 6
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 7
+      randomQuantity: 0
+      quantity: 3
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 1
+      enemy: 5
+      randomQuantity: 1
+      quantity: 3
+      initial: 1
+      final: 3
+  - waveLevel: 3
+    enemyQuantityRandom: 0
+    quantityRandom: 5
+    quantityRandomInitial: 5
+    quantityRandomFinal: 0
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 6
+      randomQuantity: 0
+      quantity: 1
+      initial: 0
+      final: 0
+    - random: 1
+      staticEnemy: 1
+      enemy: 5
+      randomQuantity: 0
+      quantity: 0
+      initial: 0
+      final: 0
+    - random: 1
+      staticEnemy: 1
+      enemy: 4
+      randomQuantity: 0
+      quantity: 0
+      initial: 0
+      final: 0
+  - waveLevel: 4
+    enemyQuantityRandom: 0
+    quantityRandom: 5
+    quantityRandomInitial: 0
+    quantityRandomFinal: 0
+    enemysInLevel:
+    - random: 1
+      staticEnemy: 1
+      enemy: 7
+      randomQuantity: 0
+      quantity: 0
+      initial: 0
+      final: 0
+  - waveLevel: 4
+    enemyQuantityRandom: 1
+    quantityRandom: 5
+    quantityRandomInitial: 5
+    quantityRandomFinal: 8
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 4
+      randomQuantity: 0
+      quantity: 3
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 1
+      enemy: 6
+      randomQuantity: 0
+      quantity: 2
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 1
+      enemy: 5
+      randomQuantity: 1
+      quantity: 0
+      initial: 0
+      final: 3
+  - waveLevel: 4
+    enemyQuantityRandom: 0
+    quantityRandom: 5
+    quantityRandomInitial: 0
+    quantityRandomFinal: 0
+    enemysInLevel:
+    - random: 0
+      staticEnemy: 1
+      enemy: 7
+      randomQuantity: 0
+      quantity: 3
+      initial: 0
+      final: 0
+    - random: 0
+      staticEnemy: 1
+      enemy: 5
+      randomQuantity: 0
+      quantity: 2
+      initial: 0
+      final: 0

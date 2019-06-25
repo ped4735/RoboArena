@@ -15,12 +15,51 @@ MonoBehaviour:
   waves:
   - difficultLevel: 0
     enemys:
-    - randomPos: 0
+    - randomPos: 1
       spawnPoint: 5
-      enemyPool: 6
+      enemyPool: 4
     - randomPos: 0
-      spawnPoint: 5
-      enemyPool: 5
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
+    - randomPos: 0
+      spawnPoint: 0
+      enemyPool: 0
   - difficultLevel: 0
     enemys:
     - randomPos: 1
@@ -172,4 +211,12 @@ MonoBehaviour:
       enemyPool: 6
     - randomPos: 1
       spawnPoint: 0
+      enemyPool: 5
+  - difficultLevel: 4
+    enemys:
+    - randomPos: 0
+      spawnPoint: 20
+      enemyPool: 4
+    - randomPos: 0
+      spawnPoint: 5
       enemyPool: 5

@@ -1,20 +1,33 @@
 ﻿using UnityEngine;
+using Sirenix.OdinInspector;
+
+
+
+/*
+ * 
+ * Behaviour que da chase ou verifica distancia para ativar trigger.
+ * 
+ */
 
 public class FSM_Chase_Navmesh : StateMachineBehaviour
 {
-
     private NPC_Navmesh npc;
     public bool rangeIsLower;
     public bool chase;
     public string trigger;
 
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    public bool useCustomRange;
+    [ShowIf("useCustomRange")]
+    public float range;
+
+   
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         npc = animator.GetComponent<NPC_Navmesh>();
+        
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
          
@@ -26,22 +39,44 @@ public class FSM_Chase_Navmesh : StateMachineBehaviour
 
         if (rangeIsLower)
         {
-            if (distance < npc.visionRange)
+            if (useCustomRange)
             {
-                animator.SetTrigger(trigger);
+                if (distance < range)
+                {
+                    animator.SetTrigger(trigger);
+                }
             }
+            else
+            {
+                if (distance < npc.visionRange)
+                {
+                    animator.SetTrigger(trigger);
+                }
+            }
+            
         }
         else
         {
-            if (distance > npc.visionRange)
+            if (useCustomRange)
             {
-                animator.SetTrigger(trigger);
+                if (distance > range)
+                {
+                    animator.SetTrigger(trigger);
+                }
             }
+            else
+            {
+                if (distance > npc.visionRange)
+                {
+                    animator.SetTrigger(trigger);
+                }
+            }
+            
         }
 
     }
 
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.ResetTrigger(trigger);

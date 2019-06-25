@@ -1,26 +1,32 @@
 ﻿using UnityEngine;
+using System;
+using System.Collections;
 
 public class PlayerDamage : DamageManager
 {
     public bool immortal;
     public PoolTypes deathVFX;
     public int maxHP = 100;
+    public Color damageColor;
+    public SkinnedMeshRenderer mesh;
 
-    private int currentHP;
+    [HideInInspector]
+    private int currentHP = 100;
 
-    private void Start()
-    {
-        currentHP = maxHP;
+    public int CurrentHP {
+        get => currentHP;
+        set => currentHP = value >= maxHP ? maxHP:value;
     }
+
 
     public override void Hit(int damage)
     {
-        currentHP -= damage;
-        UIController.instance.SetLifePlayerValueUI(currentHP);
+        CurrentHP -= damage;
+        UIController.instance.SetLifePlayerValueUI(CurrentHP);
 
         if (!immortal)
         {
-            if (currentHP <= 0)
+            if (CurrentHP <= 0)
             {
                 Death();
             }
@@ -29,6 +35,31 @@ public class PlayerDamage : DamageManager
 
     public override void Death()
     {
+        CurrentHP = maxHP;
         UIController.instance.GameOver();
     }
+
+    public void SetRegenRate(float timeRegen)
+    {
+        StopCoroutine("RegenCoroutine");
+        StartCoroutine("RegenCoroutine", timeRegen);
+    }
+
+    public void SetHP(int hp)
+    {
+        maxHP = hp;
+        currentHP = maxHP;
+        UIController.instance.SetLifePlayerValueUI(maxHP);
+    }
+
+    private  IEnumerator RegenCoroutine(float time)
+    {
+        while (true)
+        {
+            CurrentHP += 1;
+            UIController.instance.SetLifePlayerValueUI(CurrentHP);
+            yield return new WaitForSeconds(time);
+        }       
+    }
+
 }

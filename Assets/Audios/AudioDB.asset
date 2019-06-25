@@ -21,4 +21,8 @@ MonoBehaviour:
     audioChannel: 1
     name: battle
     clip: {fileID: 8300000, guid: b254b9df06eba4b40afadb33f8291436, type: 3}
+  - ID: 2
+    audioChannel: 0
+    name: laser
+    clip: {fileID: 8300000, guid: 14fe49f4fa012fc4b91c0f7e5e290610, type: 3}
   randomGroupAudios: []

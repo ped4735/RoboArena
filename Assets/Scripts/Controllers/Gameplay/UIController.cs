@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class UIController : MonoBehaviour
 {
@@ -15,11 +16,16 @@ public class UIController : MonoBehaviour
     public GameObject panelEnemyLife;
     public GameObject panelPlayerLife;
     public GameObject panelGear;
+    public GameObject panelUpgrade;
+    public GameObject alertIcon;
     public TextMeshProUGUI waveUI, waveTimeUI;
     public TextMeshProUGUI waveYouDiedUI;
     public GameObject gameOverUI;
     public GameObject pauseMenu;
-    
+
+    //audio
+    public Sprite muteON, muteOFF;
+    public Image soundIcon;
 
     [HideInInspector]
     public bool paused;
@@ -27,14 +33,37 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         AudioManager.instance.PlayByID(1);
+        alertIcon.SetActive(false);
+        DataManager.instance.LoadGame();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //Debug.Break();
             PauseGame(); 
         }
+    }
+
+    public void ShowUpgradeMenu()
+    {
+        paused = !paused;
+        panelUpgrade.SetActive(paused);
+        panelPlayerLife.SetActive(!paused);
+        panelEnemyLife.SetActive(false);
+        waveUI.GetComponent<CanvasGroup>().alpha = paused ? 0 : 1;
+
+        if (paused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+
+
     }
 
     private void Awake()
@@ -78,6 +107,14 @@ public class UIController : MonoBehaviour
         if (paused)
         {
             Time.timeScale = 0;
+            if (AudioManager.instance.mute)
+            {
+                soundIcon.sprite = muteON;
+            }
+            else
+            {
+                soundIcon.sprite = muteOFF;
+            }
         }
         else
         {
@@ -100,12 +137,30 @@ public class UIController : MonoBehaviour
     {
         Time.timeScale = 1;
         AudioManager.instance.PauseMusic();
+        DataManager.instance.SaveGame(false);
+        Manager.instance.LoadScene(sceneName);
+    }
+
+    public void GameOverLoadSceneName(string sceneName)
+    {
+        Time.timeScale = 1;
+        AudioManager.instance.PauseMusic();
+        DataManager.instance.SaveGame(true);
         Manager.instance.LoadScene(sceneName);
     }
 
     public void MuteSound()
     {
         AudioManager.instance.Mute();
+
+        if (AudioManager.instance.mute)
+        {
+            soundIcon.sprite = muteON;
+        }
+        else
+        {
+            soundIcon.sprite = muteOFF;
+        }
     }
 
     public void UpdateWaveUI(int level, int wave)
@@ -130,5 +185,16 @@ public class UIController : MonoBehaviour
         panelGear.SetActive(enable);
         panelEnemyLife.SetActive(false);
         waveUI.GetComponent<CanvasGroup>().alpha = enable ? 1 : 0;
+    }
+
+    public void SetPointsValue(int value)
+    {
+        gear_UI.GetComponent<DOTweenAnimation>().DOPlay();
+        gear_UI.text = value.ToString("00000");
+    }
+
+    public void ShowAlertIcon(bool show)
+    {
+        alertIcon.SetActive(show);
     }
 }

@@ -7,9 +7,9 @@ public class PlayerJoyControl : MonoBehaviour
     public PoolTypes bulletType;
 
     public Joystick joyL, joyR;
-    public float moveSpeed, moveSpeedWalk, moveSpeedShoot;
+    public float moveSpeedWalk, moveSpeedShoot;
     public Transform weaponTipL, weaponTipR;
-    public float fireRate;
+
 
     private float horizontal, vertical;
     private Rigidbody rb;
@@ -18,8 +18,15 @@ public class PlayerJoyControl : MonoBehaviour
     private Animator anim;
     private JoyDash joyDash;
 
+    //Upgrade 
+    private int playerDamage = 10;
+    private float playerAtackRange = 0.5f;
+    private float fireRate = 1;
+    private float moveSpeed;
+
     void Start()
     {
+        moveSpeed = moveSpeedWalk;
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         joyDash = GetComponent<JoyDash>();
@@ -32,7 +39,10 @@ public class PlayerJoyControl : MonoBehaviour
         horizontal = joyL.Horizontal;
         vertical = joyL.Vertical;
 
-        rb.velocity = new Vector3(horizontal * moveSpeed * time, rb.velocity.y, vertical * moveSpeed * time);
+        Vector3 velocity = new Vector3(horizontal, rb.velocity.y, vertical).normalized;
+
+        //rb.velocity = new Vector3(horizontal * moveSpeed * time, rb.velocity.y, vertical * moveSpeed * time);
+        rb.velocity = velocity * moveSpeed * time;
 
       
         if (joyL.Direction != Vector2.zero)
@@ -42,7 +52,7 @@ public class PlayerJoyControl : MonoBehaviour
         else if (joyL.Direction == Vector2.zero)
         {
             walking = false;
-        }        
+        }         
 
         
         if(joyR.Direction != Vector2.zero) //&& !shooting)
@@ -63,6 +73,8 @@ public class PlayerJoyControl : MonoBehaviour
         if (shooting)
         {
             moveSpeed = moveSpeedShoot;
+            anim.speed = fireRate;
+
             if (joyR.Horizontal > 0)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, angleR, transform.eulerAngles.z);
@@ -75,6 +87,7 @@ public class PlayerJoyControl : MonoBehaviour
         else
         {
             moveSpeed = moveSpeedWalk;
+            anim.speed = 1;
 
             if (joyL.Horizontal > 0)
             {
@@ -92,34 +105,41 @@ public class PlayerJoyControl : MonoBehaviour
         anim.SetBool("dash", joyDash.dash);
     }
 
-    //Shoot via fireRate
-    //IEnumerator Fire()
-    //{        
-    //    while (joyR.Direction != Vector2.zero)
-    //    {
-    //        var bullet = pool.nextThing;
-    //        bullet.transform.position = weaponTipR.position;
-    //        bullet.transform.rotation = transform.rotation;
-
-    //        yield return new WaitForSeconds(fireRate);
-    //    }
-    //    shooting = false;
-    //}
-
-
     //Shoot via event animation
     public void ShootL()
     {
         GameObject bullet = PoolController.instance.GetBullet(bulletType);
+        bullet.GetComponent<DamageOnTouch>().SetDamage(playerDamage);
+        bullet.GetComponent<Bullet>().SetDurationOfBullet(playerAtackRange);
         bullet.transform.position = weaponTipL.position;
         bullet.transform.rotation = transform.rotation;
+        AudioManager.instance.PlayByID(2);
     }
 
     public void ShootR()
     {
         GameObject bullet = PoolController.instance.GetBullet(bulletType);
+        bullet.GetComponent<DamageOnTouch>().SetDamage(playerDamage);
+        bullet.GetComponent<Bullet>().SetDurationOfBullet(playerAtackRange);
         bullet.transform.position = weaponTipR.position;
         bullet.transform.rotation = transform.rotation;
+        AudioManager.instance.PlayByID(2);
+    }
+
+    public void SetPlayerDamage(int damage)
+    {
+        playerDamage = damage;
+    }
+
+    public void SetPlayerRange(float range)
+    {
+        playerAtackRange = range;
+    }
+
+    public void SetPlayerAtkSpeedByAnim(float animSpeed)
+    {
+        //TODO fazer alteração atk speed
+        fireRate = animSpeed;
     }
 
 }

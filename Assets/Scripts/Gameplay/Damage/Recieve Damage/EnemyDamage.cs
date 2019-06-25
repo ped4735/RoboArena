@@ -15,6 +15,7 @@ public class EnemyDamage : DamageManager
     public PoolTypes vfxTypeOnEnable;
 
     public int maxHP;
+    public int gearPointsReward;
     private int currentHP;
 
     
@@ -44,6 +45,7 @@ public class EnemyDamage : DamageManager
 
         if(currentHP <= 0)
         {
+            currentHP = 0;
             Death();
         }
 
@@ -51,7 +53,9 @@ public class EnemyDamage : DamageManager
     }
 
     public override void Death()
-    {   
+    {
+        UpgradeController.instance.AddPoints(gearPointsReward);
+
         if (disableParentInstead)
         {
             if (disableOnDeath)

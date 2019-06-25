@@ -18,6 +18,17 @@ ModelImporter:
     100024: CATRigSpine 1
     100026: Player
     100028: //RootNode
+    100030: Coluna_00
+    100032: Coluna_01
+    100034: Head
+    100036: Left_Arm_00
+    100038: Left_Arm_01
+    100040: Left_Arm_02
+    100042: Peito
+    100044: Pelvis
+    100046: Right_Arm_00
+    100048: Right_Arm_01
+    100050: Right_Arm_02
     400000: Braco_Direito
     400002: Braco_Esquerdo
     400004: CATRigHub003
@@ -33,6 +44,17 @@ ModelImporter:
     400024: CATRigSpine 1
     400026: Player
     400028: //RootNode
+    400030: Coluna_00
+    400032: Coluna_01
+    400034: Head
+    400036: Left_Arm_00
+    400038: Left_Arm_01
+    400040: Left_Arm_02
+    400042: Peito
+    400044: Pelvis
+    400046: Right_Arm_00
+    400048: Right_Arm_01
+    400050: Right_Arm_02
     2100000: 'Material #27'
     2100002: 'Material #30'
     2100004: 'Material #32'
@@ -40,6 +62,7 @@ ModelImporter:
     4300000: Player
     4300002: Braco_Esquerdo
     4300004: Braco_Direito
+    7400000: Take 001
     9500000: //RootNode
     13700000: Braco_Direito
     13700002: Braco_Esquerdo

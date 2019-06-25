@@ -23,6 +23,11 @@ public class Manager : MonoBehaviour
         //LoadPlayerConfig();
     }
 
+    /*private void Start()
+    {
+        Application.targetFrameRate = 60;
+    }*/
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

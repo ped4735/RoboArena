@@ -41,6 +41,7 @@ public class JoyDash : MonoBehaviour
             else{ //DO DASH!
                 alreadyClick = true;
                 dashDirection = Joy.Direction;
+                dashDirection = dashDirection.normalized;
                 StartCoroutine(DashTiming());
             }
             
@@ -70,6 +71,7 @@ public class JoyDash : MonoBehaviour
         while (dash)
         {
             rb.velocity = new Vector3(dashDirection.x,0,dashDirection.y) * dashForce;
+            
             //rb.velocity = transform.forward * dashForce;
             yield return new WaitForEndOfFrame();
         }
